@@ -1,0 +1,53 @@
+<odoo>
+     <record id="view_employee_feedback_form" model="ir.ui.view">
+        <field name="name">employee.feedback.form</field>
+        <field name="model">employee.feedback</field>
+        <field name="arch" type="xml">
+            <form string="Employee Feedback">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="pending,reviewed,action_taken"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="employee_id" readonly="1"/>
+                        <field name="feedback"/>
+                        <field name="date_submitted" readonly="1"/>
+                        <field name="category" placeholder="Select a category"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+   <record id="view_employee_feedback_tree" model="ir.ui.view">
+    <field name="name">employee.feedback.tree</field>
+    <field name="model">employee.feedback</field>
+    <field name="arch" type="xml">
+        <tree string="Employee Feedbacks" create="true" delete="false">
+            <field name="employee_id"/>
+            <field name="feedback"/>
+            <field name="date_submitted"/>
+            <field name="status"/>
+            <field name="category"/>
+        </tree>
+    </field>
+</record>
+
+
+
+    <record id="feedback_action" model="ir.actions.act_window">
+        <field name="name">feedback action</field>
+        <field name="res_model">employee.feedback</field>
+    </record>
+
+
+
+    <menuitem
+    id="feedback_menu_item"
+    name="feedback"
+    parent="menu_employee_feedback"
+    action="feedback_action"
+    />
+</odoo>
