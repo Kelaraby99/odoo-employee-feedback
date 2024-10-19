@@ -1,0 +1,23 @@
+<odoo>
+    <!-- Inherit Employee Form View to Add Feedback Page -->
+    <record id="view_employee_form_inherit_feedback" model="ir.ui.view">
+        <field name="name">hr.employee.feedback.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Feedback">
+                    <field name="feedback_ids" mode="tree">
+                        <tree create="true" delete="false">
+                            <field name="feedback"/>
+                            <field name="date_submitted"/>
+                            <field name="status"/>
+                             <field name="category"/>
+                            <field name="rating" widget="star_rating"/>
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

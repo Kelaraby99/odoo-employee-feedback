@@ -6,10 +6,10 @@
     'depends': ['base', 'hr'],  # Dependencies
     'data': [
         'views/base_menu.xml',
-        'views/form_view.xml',
-        'views/tree_view.xml',
+        'views/employee_feedback_views.xml',
         'security/ir.model.access.csv',
-        'security/security.xml'
+        'views/hr_employee_views.xml',
+        'security/security.xml',
 
     ],
     'application': True

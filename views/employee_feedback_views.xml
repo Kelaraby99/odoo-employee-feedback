@@ -13,6 +13,8 @@
                         <field name="feedback"/>
                         <field name="date_submitted" readonly="1"/>
                         <field name="category" placeholder="Select a category"/>
+                        <field name="attachment_ids" widget="many2many_binary" string="Attachments"/>
+                        <field name="rating" widget="star_rating"/>
 
                     </group>
                 </sheet>
@@ -31,6 +33,8 @@
             <field name="date_submitted"/>
             <field name="status"/>
             <field name="category"/>
+            <field name="attachment_ids"/>
+            <field name="rating" widget="star_rating"/>
         </tree>
     </field>
 </record>
