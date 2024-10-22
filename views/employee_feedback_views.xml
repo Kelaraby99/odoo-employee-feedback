@@ -5,16 +5,16 @@
         <field name="arch" type="xml">
             <form string="Employee Feedback">
                 <header>
-                    <field name="status" widget="statusbar" statusbar_visible="pending,reviewed,action_taken"/>
+                    <field name="status" widget="statusbar" statusbar_visible="pending,reviewed,action_taken" options="{'clickable': 1}"/>
                 </header>
                 <sheet>
                     <group>
                         <field name="employee_id" readonly="1"/>
-                        <field name="feedback"/>
+                        <field name="feedback" attrs="{'readonly': [('status', '!=', 'pending')]}"/>
                         <field name="date_submitted" readonly="1"/>
-                        <field name="category" placeholder="Select a category"/>
-                        <field name="attachment_ids" widget="many2many_binary" string="Attachments"/>
-                        <field name="rating" widget="star_rating"/>
+                        <field name="category" placeholder="Select a category" attrs="{'readonly': [('status', '!=', 'pending')]}"/>
+                        <field name="attachment_ids" widget="many2many_binary" string="Attachments" attrs="{'readonly': [('status', '!=', 'pending')]}"/>
+                        <field name="rating" widget="rating" attrs="{'readonly': [('status', '!=', 'pending')]}"/>
 
                     </group>
                 </sheet>
@@ -34,7 +34,7 @@
             <field name="status"/>
             <field name="category"/>
             <field name="attachment_ids"/>
-            <field name="rating" widget="star_rating"/>
+            <field name="rating" widget="rating"/>
         </tree>
     </field>
 </record>

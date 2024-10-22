@@ -20,13 +20,7 @@ class EmployeeFeedback(models.Model):
         required=True
     )
     attachment_ids = fields.Many2many('ir.attachment', string="Attachments")
-    rating = fields.Selection([
-        ('1', '1 Star'),
-        ('2', '2 Stars'),
-        ('3', '3 Stars'),
-        ('4', '4 Stars'),
-        ('5', '5 Stars')
-    ], string="Rating", default='1')
+    rating = fields.Integer(string='Rating', default=0)
 
     @api.constrains('feedback')
     def _check_feedback_not_empty(self):
